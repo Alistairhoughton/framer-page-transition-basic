@@ -32,13 +32,17 @@ export const squareVariants = (isClicked, heightRatio, widthRatio, offset, scale
     animate: {
       transform: `scaleY(${isClicked ? heightRatio : 1}) scaleX(${
         isClicked ? widthRatio : 1
-      }) translateY(${isClicked ? -offset + scaled : 0}px)`,
+      }) translateY(${isClicked ? -offset + 129 : 0}px)`,
       borderRadius: isClicked ? 0 : 4,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
         ease: [0.6, 0.01, 0.05, 0.95],
       },
     },
   };
 };
+
+//how do I find 129px? desktop 1920 x 1080
+
+// for iphone its around 59px
 

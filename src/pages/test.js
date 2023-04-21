@@ -28,23 +28,27 @@ export default function Test() {
   useEffect(() => {
     const yPositionTop = squareRef.current.getBoundingClientRect().top;
     const newOffset = yPositionTop / heightRatio;
+    console.log("y", yPositionTop);
     setOffset(newOffset);
   }, [isClicked]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const test = window.innerHeight / (0.34 * window.innerWidth);
-      const yPositionTop = squareRef.current.getBoundingClientRect().top;
-      setScaled((yPositionTop - window.innerHeight) / test);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const test = window.innerHeight / (0.34 * window.innerWidth);
+  //     const yPositionTop = squareRef.current.getBoundingClientRect().top;
+  //     // this doesn't work
+  //     setScaled((yPositionTop - window.innerHeight) / test);
+  //   }
+  // }, []);
+
+  //this worked until I changed the container and flex start.... I need it so I can put the container anywhere for when I style with margin and padding.
 
   return (
     <motion.section className="w-full h-auto bg-slate-100 flex items-center justify-center flex-col overflow-hidden">
       <section className="w-full h-screen bg-slate-100 flex items-center justify-center">
         <h1 className="text-[5rem]">hello</h1>
       </section>
-      <section className="w-full h-screen bg-slate-300 flex items-center justify-center ">
+      <section className="w-full h-[200vh] bg-slate-300 flex items-start justify-center ">
         <motion.div
           ref={squareRef}
           className="square bg-orange-600"
