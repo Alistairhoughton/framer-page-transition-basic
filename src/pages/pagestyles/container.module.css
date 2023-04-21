@@ -1,0 +1,22 @@
+.link_container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.green_container {
+    height: 33.92857vw;
+    width: 72vw;
+    background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+    border-radius: 8px;
+}
+
+.blue_container {
+    height: 33.92857vw;
+    width: 72vw;
+    background-color: rgb(86, 153, 230);
+    border-radius: 8px;
+}
+
+
