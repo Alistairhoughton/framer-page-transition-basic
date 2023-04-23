@@ -11,9 +11,9 @@ export default function App({ Component, pageProps }) {
         mode="wait"
         initial={false}
         // onExitComplete={() => window.scrollTo({ top: 0 })}
-        // onExitComplete={() =>
-        //   setTimeout(() => window.scrollTo({ top: 0 }), 20)
-        // }
+        onExitComplete={() =>
+          setTimeout(() => window.scrollTo({ top: 0 }), 20)
+        }
       >
         <Component {...pageProps} key={componentKey} />
       </AnimatePresence>

@@ -14,6 +14,7 @@ export const exit = {
   exit: {
     height: "100vh",
     width: "100%",
+    y: -113,
     transition: {
       ease: [0.6, 0.01, 0.05, 0.95],
       duration: 0.7,
@@ -21,28 +22,31 @@ export const exit = {
   },
 };
 
-
-export const squareVariants = (isClicked, heightRatio, widthRatio, offset, scaled ) => {
+export const squareVariants = (
+  boundingTop,
+  initialBgXScale,
+  initialBgYScale
+) => {
   return {
     initial: {
-      transform: "scale(1)",
-      transformOrigin: "center",
+      position: "absolute",
+      transform: `translateY(0px) scale(1, 1)`,
       borderRadius: 4,
     },
     animate: {
-      transform: `scaleY(${isClicked ? heightRatio : 1}) scaleX(${
-        isClicked ? widthRatio : 1
-      }) translateY(${isClicked ? -offset + 129 : 0}px)`,
-      borderRadius: isClicked ? 0 : 4,
+      transform: "translateY(0) scale(1, 1)",
+      position: "fixed",
+      borderRadius: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.6, 0.01, 0.05, 0.95],
+        transform: {
+          from: `translateY(${boundingTop}px) scale(${initialBgXScale}, ${initialBgYScale})`,
+          duration: 0.7,
+          ease: [0.6, 0.01, 0.05, 0.95],
+        },
+        position: {
+          from: "fixed",
+        },
       },
     },
   };
 };
-
-//how do I find 129px? desktop 1920 x 1080
-
-// for iphone its around 59px
-
